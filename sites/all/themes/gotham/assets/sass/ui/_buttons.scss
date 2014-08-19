@@ -1,0 +1,33 @@
+//////////////////////////////////////////////////////////////////
+// buttons partial
+//////////////////////////////////////////////////////////////////
+
+.btn {
+	@extend %dis-block;
+	@extend %lap-dis-inline-block;
+	@extend %text--center;
+	@extend %font-family-sans-serif;
+	max-width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 3px;
+	@include font-size(18px);
+	line-height: 48px;
+
+	@include hover {
+		text-decoration: none;
+	}
+}
+
+.btn--primary {
+	@extend %lap-padding--sides;
+	background-color: $brand-secondary;
+	border-bottom: 4px solid lighten($brand-secondary, 10%);
+	color: #fff;
+	
+	@include hover {
+		border-color: $brand-secondary;
+		background-color: lighten($brand-secondary, 10%);
+		color: #fff;
+	}
+}

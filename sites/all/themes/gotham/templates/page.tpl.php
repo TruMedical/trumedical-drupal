@@ -74,7 +74,7 @@
 
   <header id="site-header" class="site-header site-section">
     <div class="container">
-      <div class="grid is-inline">
+      <div class="grid grid--inline">
         <div class="grid__item lap-one-third">
           <?php if ($logo): ?>
             <div class="site-logo">
@@ -86,14 +86,33 @@
         </div><!--
         --><div class="grid__item lap-two-thirds">
           <nav id="site-nav" class="site-nav" role="navigation">
-            <?php if($main_menu):?>
-              <?php print theme('links__system_main_menu',array('links' => $main_menu,'attributes' => array('id' => 'main-nav','class'=>'main-nav nav-list nav-list--main'),'heading' => array('text' => t('Main menu'),'level' => 'h2','class' => array('element-invisible')),));?>
+            <?php if($page['navigation']): ?>
+              <?php print render($page['navigation']); ?>
             <?php endif; ?>
+            <?php /* if($main_menu):?>
+              <?php print theme('links__system_main_menu',array('links' => $main_menu,'attributes' => array('id' => 'main-nav','class'=>'main-nav nav-list nav-list--main'),'heading' => array('text' => t('Main menu'),'level' => 'h2','class' => array('element-invisible')),));?>
+            <?php endif; */ ?>
           </nav>
         </div>
       </div>
     </div>
   </header>
+
+  <?php if($page['hero']): ?>
+    <section id="hero" class="hero">
+      <div class="hero__anchor">
+        <?php print render($page['hero']); ?>
+      </div>
+    </section>
+  <?php endif; ?>
+
+  <?php if($page['highlight']): ?>
+    <section id="highlight" class="highlight">
+      <div class="container">
+        <?php print render($page['highlight']); ?>
+      </div>
+    </section>
+  <?php endif; ?>
 
   <main id="site-main" class="site-main site-section" role="main">
     <div class="container">
@@ -108,7 +127,7 @@
             <?php endif;?>
 
             <?php if($tabs = render($tabs)):?>
-              <div id="tabs">
+              <div id="tabs" class="tabs-wrap">
                 <?php print render($tabs); ?>
               </div>
             <?php endif;?>

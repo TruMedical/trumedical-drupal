@@ -1,0 +1,22 @@
+//////////////////////////////////////////////////////////////////
+// node teaser styles
+//////////////////////////////////////////////////////////////////
+
+/**
+ * generic node teaser styles
+ */
+
+.node-teaser {
+	@extend %cf;
+	@extend %margin--bottom;
+	border-bottom: 1px solid #f1f1f1;
+	
+	/**
+	 * in the case it's in a view list
+	 */
+	 
+	.views-row-last & {
+		@extend %margin-off--bottom;
+		border-bottom: 0;
+	}
+}

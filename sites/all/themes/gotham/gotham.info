@@ -3,6 +3,9 @@ description = Default starter theme by Drew Bolles
 core = 7.x
 engine = phptemplate
 
+regions[hero] = hero
+regions[highlight] = Highlight
+regions[navigation] = Navigation
 regions[content_top] = Top Content
 regions[content] = Content
 regions[content_bottom] = Bottom Content

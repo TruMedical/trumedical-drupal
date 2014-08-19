@@ -2,13 +2,172 @@
 // layout partial
 /////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////
-// site container
-/////////////////////////////////////////
+/**
+ * site holder
+ */
+
+.site {
+	border-top: 6px solid $brand-primary;
+}
+
+/**
+ * site container
+ */
 
 .container {
 	max-width: $site-width;
 	width: 90%;
 	margin: auto;
 }
+
+/**
+ * site header
+ */
+
+.site-header {
+	@extend %cf;
+	@extend %padding--ends;
+	@extend %margin--bottom;
+	border-bottom: 1px solid #f1f1f1;
+}
+
+/**
+ * site logo
+ */
+
+/* .site-logo {
+	@extend %text--center;
+} */
+
+/**
+ * working with menu block classes, doing the best w/ what drupal gives me
+ * could look into creating preprocess function to give better classes
+ */
+
+.menu-name-main-menu {
+	@include media-query(lap) { 
+		text-align: right;
+	}
+
+	.menu { @extend %margin-off--bottom; }
+
+	li {
+		@extend %lap-dis-inline-block;
+		border-bottom: 1px solid #f1f1f1;
+
+		&.last { border-bottom: 0; }
+
+		@include media-query(lap) { border-bottom: 0; }
+	}
+	.first {
+		@extend %margin-off--left;	
+	}
+
+	a {
+		@extend %dis-block;
+		@extend %font-family-sans-serif;
+		padding: 0 12px;
+		line-height: 48px;
+	}
+}
+
+/**
+ * dropdowns
+ */
+
+.expanded {
+
+	> a {
+		@extend %pos--rel;
+
+		&:after {
+			content: " + ";
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			@include media-query(lap) {
+				content: "";
+				top: 50%;
+				margin-top: -2.5px;
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				border-top: 5px solid $brand-secondary;
+			}
+		}
+	}
 	
+	.menu {	
+		background-color: #f1f1f1;
+		z-index: 99;
+		text-align: left;
+
+		@include media-query(lap) {
+			position: absolute;
+			width: 250px;
+		}
+	}
+
+	.leaf {
+		@extend %margin-off--left;
+		display: block;
+		border-bottom: 1px solid #fff;
+		/* nested to define only a's within the li's of .expanded */
+		a {
+			@extend %dis-block;
+			@include font-size(16px, $line-height: false);
+			padding: 3px 12px;
+			line-height: 48px
+		}
+	}
+}
+
+/**
+ * let's enhance the menu when js is available
+ */
+
+.js {
+	.expanded {
+		.menu {
+			display: none;
+		}
+		&:hover .menu {
+			display: block;
+		}
+	}
+}
+
+/**
+ * highlight region
+ */
+
+.highlight {
+	@extend %padding--ends;
+	@extend %lap-padding-dbl--ends;
+	@extend %text--center;
+	@extend %margin--bottom;
+	margin-top: -$sub;
+	background-color: #f1f1f1;
+}
+
+/**
+ * page footer region
+ */
+
+.page-footer {
+	@extend %padding--top;
+	@extend %padding-dbl--sides;
+	@extend %text--center;
+	@include font-size(18px);
+	border-top: 1px solid #f1f1f1;
+}
+
+/**
+ * site footer
+ */
+
+.footer {
+	@extend %padding--top;
+	border-top: 1px solid #f1f1f1;
+	color: #727272;
+}

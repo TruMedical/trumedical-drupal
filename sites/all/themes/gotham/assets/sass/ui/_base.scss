@@ -2,22 +2,50 @@
 // base elements
 /////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////
-// html & body
-/////////////////////////////////////////
+/**
+ * html & body
+ */
 
 body {
+	color: #444;
 	font: {
 		family: Georgia, serif;
 	}
 }
 
-/////////////////////////////////////////
-// headers
-/////////////////////////////////////////
+/**
+ * headers
+ */
 
 h1,h2,h3,h4,h5,h6 {
 	font: {
-		family: Helvetica Neue, Helvetica, sans-serif;
+		family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+		weight: 400;
+	}
+}
+
+/**
+ * basic anchor links
+ */
+
+a {
+	text-decoration: none;
+	color: $brand-secondary;
+	transition: .2s ease all;
+
+	@include hover { text-decoration: underline; }
+} 
+
+/**
+ * blockquote styles
+ */
+
+blockquote {
+	@extend %padding;
+	background-color: #f1f1f1;
+	border-left: 10px solid #ccc;
+
+	p {
+		@extend %margin-off--bottom;
 	}
 }
