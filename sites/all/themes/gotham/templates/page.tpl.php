@@ -156,6 +156,16 @@
     </div>
   </main>
 
+  <?php if($page['content_bottom']): ?>
+
+    <section id="content-bottom" class="content-section content-bottom">
+      <div class="container">
+        <?php print render($page['content_bottom']); ?>
+      </div>
+    </section>
+
+  <?php endif; ?>
+
 </div>
 
 <footer id="footer" class="footer">
