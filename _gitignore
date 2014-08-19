@@ -8,4 +8,3 @@ sites/*/private
 .sass-cache
 screen.css
 .DS_Store
-scripts.min.js
